@@ -1,6 +1,6 @@
 from random import shuffle
 
-def write():
+def write():										#Entering the tasks
 	print()
 	while True:
 		To = input("What's to be Done? ")
@@ -9,7 +9,7 @@ def write():
 		with open('theone.txt','a') as f:
 			f.write(To + '\n')
 
-def read():
+def read():											#Listing out the tasks in the file
 	with open('theone.txt') as f:
 		tasks = f.readlines()
 
@@ -26,7 +26,7 @@ def read():
 	elif len(tasks) == 0:
 		print('Nothing to do... ')
 
-def selector():
+def selector():										#Selecting a random task from the bunch
 	with open('theone.txt') as i:
 		rtask = i.readlines()
 	
@@ -36,7 +36,7 @@ def selector():
 	print('We have to: ')
 	print(rtask[0])
 
-def r_sequence():
+def r_sequence():									#Creating a random sequence of tasks
 	with open('theone.txt') as r:
 		stask = r.readlines()
 
@@ -52,11 +52,11 @@ def r_sequence():
 		n = n+1
 	print()
 
-def delete():
+def delete():										#Deleting a task 
 	with open('theone.txt') as f:
 		tasks = f.readlines()
 
-	print() #for aesthetics
+	print()
 
 	if len(tasks) == 0:
 		print('A vacuum cant get emptier!')
@@ -99,7 +99,7 @@ def delete():
 			print('Wrong input. Error code: B0z(1-1)')
 			print()
 
-def adel():
+def adel():												#Deleting all the inputs
 	with open('theone.txt', 'r') as c:
 		x = c.readlines()
 	if len(x) == 0:
@@ -115,7 +115,7 @@ def adel():
 		else:
 			print('Ok')
 
-''' the main flow '''
+	''' THE MAIN FLOW '''
 
 print('Help? try h !')
 read()
@@ -128,23 +128,23 @@ while True:
 		print(f"{'*i - input'}\n{'*l - display'}\n{'*r - random'}\n{'*s - random sequence'}\n{'*d - delete'}\n{'*a - delete all'}\n{'*quit - quit'}\n")
 
 
-	elif mode == 'i':		#input task
+	elif mode == 'i':			#input task
 		write()
 		read()
 
-	elif mode == 'l':	#provide all task
+	elif mode == 'l':			#provide all task
 		read()
 
-	elif mode == 'r':	#random mode
+	elif mode == 'r':			#random mode
 		selector()
 
-	elif mode == 's':	#random series of tasks
+	elif mode == 's':			#random series of tasks
 		r_sequence()
 
-	elif mode == 'd':	#deleter
+	elif mode == 'd':			#deleter
 		delete()
 
-	elif mode == 'a':	#delete all
+	elif mode == 'a':			#delete all
 		adel()
 
 	elif mode == 'quit':
