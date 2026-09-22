@@ -74,7 +74,7 @@ def delete():										#Deleting a task but better
 			print('Wrong input. Error code: Boz(1-1)')
 			print()
 
-def adel():												#Deleting all the inputs
+def adel():											#Deleting all the inputs
 	with open('theone.txt', 'r') as c:
 		x = c.readlines()
 	if len(x) == 0:
