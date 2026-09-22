@@ -52,51 +52,26 @@ def r_sequence():									#Creating a random sequence of tasks
 		n = n+1
 	print()
 
-def delete():										#Deleting a task 
-	with open('theone.txt') as f:
-		tasks = f.readlines()
+def delete():										#Deleting a task but better
+	with open('theone.txt') as d:
+		dtask = d.readlines()
 
-	print()
-
-	if len(tasks) == 0:
-		print('A vacuum cant get emptier!')
-		print()
-
-	else:	
-		i = 1
-		for task in tasks:
-			print (f" {i}) {task.rstrip()}")
-			i = i + 1
-		print()
-
-		o = 0
-		dt = []
-
-		print('whats to be deleted?')
-		ToBeDeleted = int(input('Here first element is 1, second element is 2 and so on. '))
+	if len(dtask) == 0:
+		print("A vacuum can't get any emptier!")
 	
-		try:
-			ToDelete = ToBeDeleted - 1
-
-			for _ in range(len(tasks)):
-				if ToDelete != o:
-					dt.append(tasks[o])
-					o = o + 1
-				elif  ToDelete == o:
-					o = o + 1
-
-			o_ = 0
-
-			with open('theone.txt','w') as g:
-				g.write('')
+	else:
+		print('whats to be deleted?')
+		ToDel = int(input('Here first element is 1, second element is 2 and so on. '))
 		
-			with open('theone.txt' , 'a') as h:
-				for _ in range(len(dt)):
-					h.write(dt[o_])
-					o_ = o_ + 1
+		try:
+			
+			with open('theone.txt' , 'w') as h:
+					h.writelines(dtask)
 
-		except:
-			print('Wrong input. Error code: B0z(1-1)')
+			print('Mission successful')
+
+		except: 
+			print('Wrong input. Error code: Boz(1-1)')
 			print()
 
 def adel():												#Deleting all the inputs
